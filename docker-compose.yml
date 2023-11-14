@@ -1,0 +1,17 @@
+services:
+  nginx:
+    image: nginx:1.25
+    volumes:
+      - ./:/var/www
+      - ./nginx/conf.d:/etc/nginx/conf.d
+    ports:
+      - 80:80
+    depends_on:
+      - php
+    container_name: docker-example_nginx
+  php:
+    image: php:8.2-fpm
+    volumes:
+      - ./:/var/www
+  
+    
